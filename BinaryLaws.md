@@ -14,7 +14,7 @@ HW 03 -- Codify the Revisions (revised version of binary algos)
 2. Binary -> Decimal
 Reading from right to left:
     
-    a) Establish that n = 0 in $2^n$
+    a) Establish that n = 0 in 2^n
     
     b) B is the decimal value given, that needs to be translated
     
