@@ -1,0 +1,29 @@
+If Statement Syntax:
+
+0. 
+if (boolean)
+	<statement>, 
+
+1. 
+if (boolean)
+        <statement 0>;
+	<statement 1>;
+	...
+	<statement n>;
+
+2. 
+if (boolean){
+        <statements>;
+	} else {
+		<statements>
+}
+
+3.
+if (boolean){
+        <statements>;
+        } else if (boolean 2){
+                <statements>;
+	} else {
+		<statements>
+}
+

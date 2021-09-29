@@ -1,0 +1,14 @@
+**ANATOMY OF METHOD**
+
+public static <RETURNTYPE> <NAME>(ARGUMENTS){
+ <BODY>
+}
+
+Java is object oriented which means everything is written inside an object
+
+The name of a method can be anything considered valid 
+ - main is special -> returntype is void
+
+Arguments - similar to python, just be more specifc via the data types 
+
+

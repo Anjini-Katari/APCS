@@ -1,0 +1,21 @@
+Relational Operators
+ - output boolean datatypes 
+ - ==, !=, >, <, >=, <=
+ 
+Logic Operators (for logic statements)
+ - && -> and
+ - || -> or
+ - ! -> not
+
+De Morgan's Laws
+ - !(A && B) is the same as !A || !B
+ - !(A || B) is the same as !A $$ !B
+
+Boolean vars:
+ boolean flag;
+ flag = true
+ boolean Testresult = false
+
+*These are called flag variables 
+
+

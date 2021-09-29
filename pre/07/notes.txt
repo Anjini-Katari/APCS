@@ -1,0 +1,6 @@
+Pretest loops: Test condition BEFORE entering loop
+
+Postest loops: Test condition AFTER loop has run AT LEAST ONCE
+
+
+** For loops not like python, but similar to java script **

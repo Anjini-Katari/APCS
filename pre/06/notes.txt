@@ -1,0 +1,17 @@
+Value vs Void methods 
+ - Val declarres type of return val (aka return type) 
+ - Uses at least 1 return statement 
+
+Dead code -> code that can't de excecuted -> will give an error when run
+
+stub -> an outline for method
+
+Overloading - giving 1 more more methods the same name
+ - legal! As long as each version has diff params 
+  - probably not a goo idea though- seeing as you could get confused very easily 
+
+Turing Complete language 
+ - Can compute anything computable 
+ - Ex java
+
+

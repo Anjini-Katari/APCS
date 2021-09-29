@@ -1,2 +1,17 @@
 Vars syn: type_of_data var_name = <val of var>
 
+State diagrams -> show the state of vars at a given time
+
+print vs println
+ - println is print all the previous statements
+   - also new line
+ - print says to print one specific part
+
+* Floats nums are called doubles 
+
+Errors:
+ * COMPILE-TIME Error - errors found before the program is run, while its being read
+ * RUN-TIME Error - erros found while program is running 
+ * LOGIC Errors - errors that don't leave error messages but also don't do what you want them to
+
+* Type-cast:(int) pi ->converts pi to int
