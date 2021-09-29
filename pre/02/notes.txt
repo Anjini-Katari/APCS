@@ -1,0 +1,2 @@
+Vars syn: type_of_data var_name = <val of var>
+

@@ -1,0 +1,15 @@
+Main memory
+ - more short term 
+ - goes through data quicker
+ - more frequently than secondary
+ - for running programs 
+
+Secondary memory
+ - more long term 
+ - goes through data slower
+ - for storing applications
+ - when a program is running a copy
+
+'javac Hello.java' -> runs the code using java
+creates .class file
+run via 'java Hello'
