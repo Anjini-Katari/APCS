@@ -1,4 +1,6 @@
 Error: Main method not found in class Greet, please define the main method as:
    public static void main(String[] args)
 
-
+** when this appeared, the code worked (tested via a friend's computer) but it wouldn't work on mine. To fix this, try creating a new file, copy paste the CAT version of the file, then run.
+Why - dad said sometimes when c/p there are some 'invisible' characters that are added and mess up the code- 
+How to avoid more heartache- C/P FROM CAT'D FILE
