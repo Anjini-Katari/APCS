@@ -31,14 +31,19 @@ QCC:
 
 public class BigSib {
 
-        public BigSib() {
+        public BigSib(String name) {
                 helloMsg = "Word up";
+		Sibname=name;
         }
 
         public static String helloMsg;
+	public static String Sibname;
 
         public static String greet(String y) {
                 return helloMsg + " " + y;
         }
+	public static String whatsmyname() {
+		return Sibname;
+	}
 }
 	
