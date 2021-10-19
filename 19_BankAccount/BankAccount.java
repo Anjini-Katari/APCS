@@ -16,7 +16,7 @@ public class BankAccount {
   //---------------------------------------------
 
 
-  //mutators
+  //mutators -> will set the values of private things like instance vars
   public String setName( String newName ) {
     String oldName = name;
     name = newName;
