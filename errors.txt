@@ -4,3 +4,12 @@ Error: Main method not found in class Greet, please define the main method as:
 ** when this appeared, the code worked (tested via a friend's computer) but it wouldn't work on mine. To fix this, try creating a new file, copy paste the CAT version of the file, then run.
 Why - dad said sometimes when c/p there are some 'invisible' characters that are added and mess up the code- 
 How to avoid more heartache- C/P FROM CAT'D FILE
+
+error: failed to push some refs to 'git@github.com:Anjini-Katari/APCS.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+** appeared because i didn't 'git pull' before 'git push' -> means everything isn't up-to-date and you should 'git pull'
