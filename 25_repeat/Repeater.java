@@ -1,69 +1,67 @@
 /*
-TNPG: Vegan Dragons (Andrew Piatesky, Anjini Katari, Courtney Huang) and Watson
+TNPG: Vegan Dragons (Andrew Piatesky, Anjini Katari, Courtney Huang) and Burnt Peanut
 APCS
-HW 25 -- Do I repeat myself?
-2021-10-27
-time spent:
-
-DISCO:
- * While loops are easier to visualize and explain than recursive
- * When looking at both while loops and recursive reduction, its important to look 
-   at which way you should order the lines and dashes (ex. |-- vs --|)
-
-QCC:
- * Is there another way to ensure that numPosts isn't negative?
-
+HW 19 -- Do I repeat myself?/Working with loops and recursion/Created two versions of a method that builds a fence, one recursive the other one looping using while loop
+2021-10-26
+time spent: 30-40min
+Discoveries:
+Recursion is much cleaner and cooler than while loops.
+If you input zero into the recusion method without a non recursive return statement (line 66), then it will throw an error and repeat forever.
+Questions:
+How can I write my recursive method without a string input?
 */
+
 
 public class Repeater {
 
-	public static String fenceW(int numPosts) {
-		String fence = "";
-		int counter = 1;
-		while (numPosts > 0 && counter <= numPosts) {
-			if (counter < numPosts) {
-				fence += "|--";
-			}
-			else {
-				fence += "|";
-			}
-			counter += 1;
+	//Main method
+	public static void main( String[] args ) {
+
+		//Loop to test fence loop with different numbers for (int i = 0; i < 5; i++) {
+		System.out.println("==============================");
+		System.out.println("Testing while loop fence method\n");
+
+		for (int i = 0; i < 10; i++) {
+			System.out.println(i + ": " + fenceW(i));
 		}
-		return fence;
+
+		//Testing out recusion method
+		System.out.println("\n==============================");
+		System.out.println("Testing recusive fence method\n");
+
+		for (int i = 0; i < 10; i++) {
+			//resets string after everytime
+			String s = "";
+			System.out.println(i + ": " + fenceR(i,s));
+		}		
 	}
 
-	public static String fenceR(int numPosts) {
-                String fence = "";
-                int counter = 1;
 
-                if (numPosts > 0 && numPosts >= counter) {
-                        fence += "|--";
-                        fenceR(numPosts - 1);
-                } 
-                else {
-                        fence += "|";
+	//Creates fence using while loop
+	private static String fenceW( int numPosts ) {
+		String str = "|";
+		int i = 1;
+
+		while (numPosts > i) {
+			str = str + "--|";
+			i++;
 		}
-                return fence;
+
+		return str;
 	}
 
-	public static void main(String [] args) {
-	//while cases
-		System.out.println("While loop:");
-		System.out.println(fenceW(1));
-		System.out.println(fenceW(0));
-                System.out.println(fenceW(-1));
-                System.out.println(fenceW(3));
-
-	//recursive cases
-                System.out.println("Recursive Reduction:");
-                System.out.println(fenceW(1));
-                System.out.println(fenceW(0));
-                System.out.println(fenceW(-1));
-                System.out.println(fenceW(3));
-
-	}
+	//Creates fences using recursion
+	private static String fenceR ( int numPosts, String str ) {
+		
+		if ( numPosts == 1 ) {
+			return str + "|";
+		} 
+		else if ( numPosts > 1 ) {
+			str = str + "|--";
+			return fenceR(numPosts-1,str);
+		}
+		else {
+			return str;
+		}
+	}	
 }
-
-//takes non-negative integer posts, and returns a String rep of a fence
-// with the specified number of posts. Employs a while loop.
-
