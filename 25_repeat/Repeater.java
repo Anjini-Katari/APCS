@@ -4,6 +4,15 @@ APCS
 HW 25 -- Do I repeat myself?
 2021-10-27
 time spent:
+
+DISCO:
+ * While loops are easier to visualize and explain than recursive
+ * When looking at both while loops and recursive reduction, its important to look 
+   at which way you should order the lines and dashes (ex. |-- vs --|)
+
+QCC:
+ * Is there another way to ensure that numPosts isn't negative?
+
 */
 
 public class Repeater {
