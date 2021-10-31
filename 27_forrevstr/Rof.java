@@ -12,7 +12,7 @@ DISCO:
 
 QCC:
  * Is there a java version of slicing?
-
+ * What does the error "Exception in thread "main" java.lang.StackOverflowError" mean?
 **/
 
 
@@ -28,6 +28,12 @@ public class Rof {
 		System.out.println(reverseF("Anjini"));
                 System.out.println(reverseF("Ben"));
                 System.out.println(reverseF("stressed"));
+
+	//reverseR
+        	System.out.println(reverseR("four"));
+                System.out.println(reverseR("Anjini"));
+                System.out.println(reverseR("Ben"));
+                System.out.println(reverseR("stressed"));
 	}
 
 //fenceF(int posts) takes non-negative integer posts, and returns a String representation of a fence with the specified number of posts. Uses a
@@ -58,4 +64,23 @@ public class Rof {
 		return reverse;
 	}
 
+//a non-empty String s and returns s with its letters reversed. Employs recursion.
+
+        public static String reverseR(String s) {
+	//	long ogLen = s.length(); 
+		int len = s.length();
+                int less = len - 1;
+                String reverse = "";
+		int counter = 0;
+
+		if (len > 0) {
+			//if (counter <= ogLen) {
+			reverse += s.substring (less, len);
+			len = len -1;
+			counter += 1;
+			reverseR(s);
+			}
+		}
+		return reverse;
+	}
 }
