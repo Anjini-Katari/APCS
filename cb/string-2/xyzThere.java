@@ -21,7 +21,6 @@ public class xyzThere {
                 String pd = str.substring((lower - 1), lower);
                 System.out.println(pd);
                 if (pd.equals(".")) {
-                    return false;
                 }
                 else {
                     return true;
