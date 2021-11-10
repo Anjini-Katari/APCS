@@ -18,10 +18,27 @@
  *      [_]   [_]
 
 DISCO:
-
+ * Methods for finding number of spaces and number of vowels are very similar
+ * If you have punctuation in your input but don't adjust your method to
+   accomadate it, it will be treated like a consonant.
+ * Helper methods become increasingly more helpful as more variables come into
+   play. Use them wisely, they can easily simplify your code.
+ * To switch between uppercase and lowercase you can create a 2 strings of the
+   alphabet, one in all lowercase and one in all uppercase, the indexs of the
+   corresponding upper or lower case letter will be the same in each string, so
+   you can seemlessly transition between them.
 
 QCC:
+ * How do you get a word after a space to go through the PL translator?
+ * Can we create a pig latin translator without the use of the many helper
+   methods we have?
+ * Is there a more efficent way to check for punctuation or capitalization?
+   What would be a faster approach to this?
 
+New in v2:
+ * The pig latin translator is now able to correctly deal with punctuation and
+   capitalization for the first letter. In addition there have been several more
+   helper methods added to make this possible, including hasPunct and firstUpper.
 
  ***/
 

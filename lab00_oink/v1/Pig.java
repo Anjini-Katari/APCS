@@ -3,7 +3,7 @@
  * APCS
  * L00 -- Etterbay Odingcay Oughthray Ollaborationcay
  * 2021-11-10
- * time spent:  hrs
+ * time spent: 0.5 hrs
  *
  * class Pig
  * a Pig Latin translator
@@ -18,11 +18,21 @@
  *      [_]   [_]
 
 DISCO:
-
+ * Methods for finding number of spaces and number of vowels are very similar
+ * If you have punctuation in your input but don't adjust your method to
+   accomadate it, it will be treated like a consonant.
+ * Helper methods become increasingly more helpful as more variables come into
+   play. Use them wisely, they can easily simplify your code.
 
 QCC:
+ * How do you get a word after a space to go through the PL translator?
+ * Can we create a pig latin translator without the use of the many helper
+   methods we have?
 
-
+NEW IN V1:
+ * Attempt to incorperate multiple words seperated by spaces, this is currently
+   commented out because the current approach was not working. In addition we
+   created a helper method to count spaces.
  ***/
 
 

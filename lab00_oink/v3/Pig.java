@@ -21,24 +21,27 @@ DISCO:
  * Methods for finding number of spaces and number of vowels are very similar
  * If you have punctuation in your input but don't adjust your method to
    accomadate it, it will be treated like a consonant.
+ * Helper methods become increasingly more helpful as more variables come into
+   play. Use them wisely, they can easily simplify your code.
+ * To switch between uppercase and lowercase you can create a 2 strings of the
+   alphabet, one in all lowercase and one in all uppercase, the indexs of the
+   corresponding upper or lower case letter will be the same in each string, so
+   you can seemlessly transition between them.
  * While we made similar methods for finding vowels, spaces and punctuation,
    they differed based on how we needed to find its occurance
-
 QCC:
  * How can we condense the amount of methods we wrote in order to make the 
    translator work?
  * Can we create a pig latin translator without the use of the many methods 
    we have?
-
 How we utilized the Scanner Demo:
- * 
-
+ * We used the Scanner to run many test cases at once for translating english 
+   to pig latin.
 What causes the runtime error:
- * 
-
+ * Stack overflow
 New in v3:
- * phrases now work!
- * added isSpace and spaceIndex
+ * Our code can now translate phrases rather than single words only, in order
+   to do this we added methods such as isSpace and spaceIndex.
 
  ***/
 
