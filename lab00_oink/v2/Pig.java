@@ -3,11 +3,7 @@
  * APCS
  * L00 -- Etterbay Odingcay Oughthray Ollaborationcay
  * 2021-11-10
-<<<<<<< HEAD
  * time spent:  hrs
-=======
- * time spent: 0.5 hrs
->>>>>>> 867961db85c740e1c96306a8a8ac12b000512a6e
  *
  * class Pig
  * a Pig Latin translator
@@ -22,29 +18,28 @@
  *      [_]   [_]
 
 DISCO:
-<<<<<<< HEAD
-
-
-QCC:
-
-
-=======
  * Methods for finding number of spaces and number of vowels are very similar
  * If you have punctuation in your input but don't adjust your method to
    accomadate it, it will be treated like a consonant.
  * Helper methods become increasingly more helpful as more variables come into
    play. Use them wisely, they can easily simplify your code.
+ * To switch between uppercase and lowercase you can create a 2 strings of the
+   alphabet, one in all lowercase and one in all uppercase, the indexs of the
+   corresponding upper or lower case letter will be the same in each string, so
+   you can seemlessly transition between them.
 
 QCC:
  * How do you get a word after a space to go through the PL translator?
  * Can we create a pig latin translator without the use of the many helper
    methods we have?
+ * Is there a more efficent way to check for punctuation or capitalization?
+   What would be a faster approach to this?
 
-NEW IN V1:
- * Attempt to incorperate multiple words seperated by spaces, this is currently
-   commented out because the current approach was not working. In addition we
-   created a helper method to count spaces.
->>>>>>> 867961db85c740e1c96306a8a8ac12b000512a6e
+New in v2:
+ * The pig latin translator is now able to correctly deal with punctuation and
+   capitalization for the first letter. In addition there have been several more
+   helper methods added to make this possible, including hasPunct and firstUpper.
+
  ***/
 
 
@@ -52,11 +47,9 @@ public class Pig {
 
 	private static final String VOWELS = "aeiouyAEIOUY";
 	private static final String space = " ";
-<<<<<<< HEAD
-=======
 	private static final String punctuation = ".!?,;:";
-
->>>>>>> 867961db85c740e1c96306a8a8ac12b000512a6e
+	private static final String lowerCase = "abcdefghijklmnopqrstuvwxyz";
+	private static final String upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 	/**
 	boolean hasA(String,String) -- checks for a letter in a String
@@ -93,11 +86,7 @@ public class Pig {
 	post: hasAVowel("cat") -> true
 	hasAVowel("zzz") -> false
 	**/
-<<<<<<< HEAD
-  public static boolean hasAVowel( String w ) {
-=======
 	public static boolean hasAVowel( String w ) {
->>>>>>> 867961db85c740e1c96306a8a8ac12b000512a6e
 		if (countVowels(w) > 0) {
 			return true;
 		}
@@ -106,8 +95,6 @@ public class Pig {
 		}
 	}
 
-<<<<<<< HEAD
-=======
 	public static boolean hasPunct(String w) {
 		int counter = 0;
 		boolean ans = false;
@@ -125,7 +112,19 @@ public class Pig {
 		return ans;
 	}
 
->>>>>>> 867961db85c740e1c96306a8a8ac12b000512a6e
+	public static boolean firstUpper(String w) { 
+		int counter = 0;
+		boolean ans = false;
+
+		while (counter < upperCase.length()) {
+			if ((w.substring(0,1)).equals(upperCase.substring(counter, counter + 1))) {
+				ans = true;
+			}
+			counter += 1;
+		}
+		return ans;
+	}
+
 	/**
 	String allVowels(String) -- returns vowels in a String
 	pre:  w != null
@@ -176,19 +175,27 @@ public class Pig {
 	engToPig("strong") --> "ongstray"
 	engToPig("java")   --> "avajay"
 	**/
-	public static String engToPigWord( String w ) {
+	public static String engToPig( String w ) {
 		String ans = "";
-<<<<<<< HEAD
-=======
+		int ind;
 		//check punct
                 if (hasPunct(w) == true) {
-                        ans += engToPigWord(w.substring(0, (w.length() - 1)));
+                        ans += engToPig(w.substring(0, (w.length() - 1)));
                         ans += w.substring(w.length() - 1);
 			return ans;
                 }
 
+		if (firstUpper(w) == true) {
+			ind = upperCase.indexOf(w.substring(0,1));
+			String first = lowerCase.substring(ind, ind + 1);
+			first += w.substring(1);
+			//System.out.println(first);
+			ans += upperCase.substring((lowerCase.indexOf(firstVowel(first))), (lowerCase.indexOf(firstVowel(first)) + 1));
+			String x = engToPig(first);
+			ans += x.substring(1);
+			return ans;
+		}
 
->>>>>>> 867961db85c740e1c96306a8a8ac12b000512a6e
 		if ( beginsWithVowel(w) )
 			ans = w + "way";
 		else {
@@ -197,34 +204,7 @@ public class Pig {
 		}
 		return ans;
 	}
-/**	public static String engToPigPhrase( String w ) {
-<<<<<<< HEAD
-		String ans = "";
-		int spaceNumber = countSpaces(w);
-=======
-		String punct = "";
-		String ans = "";
-		int spaceNumber = countSpaces(w);
-		if (hasA (w, " ") == true) {
-		
-		}
 
-		if (hasPunct(w) == true) {
-			ans += engToPigWord(w.substring(0, (w.length() - 1)));
-			ans += w.substring(w.length() - 1);
-		}
-
->>>>>>> 867961db85c740e1c96306a8a8ac12b000512a6e
-		for (int i=0; i<spaceNumber+1; i++) {
-			String word = w.substring(0, w.indexOf(" "));
-			ans += engToPigWord(word);
-                        if (w.indexOf(" ") != -1) {
-				w = w.substring(w.indexOf(" ") +1);
-				ans += " ";
-			}
-		}
-		return ans;
-	}
 
         public static int countSpaces( String w ) {
 		int counter = 0;
@@ -238,25 +218,18 @@ public class Pig {
                 return results;
         }
 
-*/
+
 	public static void main( String[] args ) {
 		for( String word : args ) {
 			System.out.println( "allVowels \t" + allVowels(word) );
 			System.out.println( "firstVowels \t" + firstVowel(word) );
 			System.out.println( "countVowels \t" + countVowels(word) );
-			System.out.println( "engToPig \t" + engToPigWord(word) );
+			System.out.println( "engToPig \t" + engToPig(word) );
 //			System.out.println( "engToPig \t" + engToPigPhrase(word) );
-<<<<<<< HEAD
-=======
-			System.out.println( "punctuation \t" + hasPunct(word));
->>>>>>> 867961db85c740e1c96306a8a8ac12b000512a6e
+			System.out.println( "Uppercase \t" + firstUpper(word));
 			System.out.println( "---------------------" );
 		}
 
 	}//end main()
 
 }//end class Pig
-<<<<<<< HEAD
-
-=======
->>>>>>> 867961db85c740e1c96306a8a8ac12b000512a6e
