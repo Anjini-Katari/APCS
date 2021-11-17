@@ -1,3 +1,13 @@
+/*
+
+Return the sum of the numbers in the array, except ignore sections 
+of numbers starting with a 6 and extending to the next 7 (every 6 
+will be followed by at least one 7). Return 0 for no numbers.
+
+sum67([1, 2, 2]) → 5
+sum67([1, 2, 2, 6, 99, 99, 7]) → 5
+sum67([1, 1, 6, 7, 2]) → 4
+*/
 public class sum67 {
     public static int sum67(int[] nums) {
         int alength = nums.length;
@@ -6,25 +16,20 @@ public class sum67 {
         int sevenpos = 0; 
         for (int i = 0; i < alength; i++) {
           if (nums[i] != 6) {
-            System.out.println("val of i: " + i);
             result += nums[i];
-            System.out.println("val of result: " + result);
           }
           else {
             sixpos = i; 
-            for (int h = sixpos; h < alength && sevenpos != h; h++) {
+            for (int h = sixpos; h < alength; h++) {
               if (nums[h] == 7) {
-                sevenpos = h;
-                System.out.println("val of h: " + h);
-                System.out.println("val of sevenpos: " + sevenpos); 
-              } 
+                sevenpos = h; 
+              }
             }
             i = sevenpos; 
           }
         }
-        System.out.println("val of i: " + i);
         return result;
-      }
+      }      
 
     public static void main(String[] args) {
         //int[] array = {1, 2, 2};
