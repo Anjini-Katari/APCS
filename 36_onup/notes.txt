@@ -1,0 +1,79 @@
+Anjini Katari feat. Duckie Watson
+APCS
+HW 36 -- All Quacked Up
+2021-11-19
+time spent: 0.7 hours
+
+Appendix D of Think Java textbook
+Debugging
+
+D.1: Compiler Errors
+ * Happens while compiling 
+ * If says '100 errors' it could just be one error thats 
+   causing the code to break & report many errors 
+ * Sometimes you can make sense of errors 
+    - if not, you at least know where it is 
+    - if error at method invocation, also check the method
+ * If error not found, look at the program broadly
+    - also check indentation 
+ * Common Syntax Errors 
+    - parenthesis and brackets 
+    - class then methods then program statements 
+    - Caps errors
+    - s e m i c o l o n s 
+    - "" -> string; '' -> characters 
+    - data types must be the same!
+    - don't return for void, return for methods without void
+        - make sure you return with the correct return type 
+ * If nothing else works
+    - make sure the right file is being compiled
+    - Debug by bisection 
+        - make a new file, split the code in 2 and only run 
+          half of it
+ * Sometimes the suggestions/errors given aren't helpful 
+
+D.2: Run-Time Errors
+ * Best way to fix is via print statements 
+ * 'hanging' -> program is caught in an infinite loop
+ * Infinite Loop
+    - add print statement at end to check values
+ * Infinite Recursion
+    - usually gives 'StackOverflowError'
+    - check for base case 
+    - add print for params 
+ * Flow of Execution 
+    - print statements at the beg on each method to see what 
+      runs when 
+ * NullPointerException
+    - you tried to invoke an instance var or method on 
+      something that has the val of null
+ * Too many print statements 
+    - simplify output or the problem 
+        - output: less/more concise print statements 
+        - problem: scale down the problem/sample size 
+
+D.3: Logic Errors
+ * Program runs fine but hte output isn't what you expected 
+   it to be 
+ * Figure out what the code is actually trying to do (review 
+   flow of execution)
+ * Break up them test code in components 
+ * Common Logic Errors
+    - int div always is an int (use double for frac/dec)
+    - floats are estimates 
+    - '==' is for identical. '.equals' is for equivalence
+ * Big equations -> break it down into smaller pieces (use vars 
+   to help); becomes easier to read and ergo debug
+ 
+Desperate Zone, pt 1
+ * If you start to feel frustrated, angry, annoyed, 
+   universe-is-against-me vibes, take a break
+
+Desperate Zone, pt 2
+ * Bring a fresh pair of eyes 
+ * Give info on bug
+ * Utilize duckie 
+
+Finale
+ * Keep the bugs conquered in mind for you may see them in 
+   battle once again 
