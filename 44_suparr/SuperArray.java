@@ -1,7 +1,7 @@
-// Clyde "Thluffy" Sinclair
-// APCS1 pd0
+// TNGP: Puntu (Anjini Katari, Jacc Chen)
+// APCS1 pd7
 // HW44 -- expanding SuperArray functionality, encapsulation
-// 2021-12-08w
+// 2021-12-08
 
 /***************************
  * class SuperArray version 2.0
@@ -14,6 +14,12 @@
  * adding an element at specified index
  * removing an element at specified index
  ***************************/
+ /**
+ DISCO: Nothing too surprising? :) Helps to draw out a diagram though. 
+ QCC: Changed toString so that for the first for loop, it takes _data.length
+ instead of _size because _size is 0 and it caused some issues. Is an empty array
+ [] or can it have 0's?
+ **/
 
 public class SuperArray
 {
@@ -34,7 +40,7 @@ public class SuperArray
   public String toString()
   {
     String foo = "[";
-    for( int i = 0; i < _size; i++ ) {
+    for( int i = 0; i < _data.length; i++ ) {
       foo += _data[i] + ",";
     }
     if ( foo.length() > 1 )
@@ -49,8 +55,9 @@ public class SuperArray
   private void expand()
   {
     int[] temp = new int[ _data.length * 2 ];
-    for( int i = 0; i < _data.length; i++ )
+    for( int i = 0; i < _data.length; i++ ) {
       temp[i] = _data[i];
+    }
     _data = temp;
   }
 
@@ -64,8 +71,7 @@ public class SuperArray
 
   //mutator -- set value at index to newVal,
   //           return old value at index
-  public int set( int index, int newVal )
-  {
+  public int set( int index, int newVal ) {
     int temp = _data[index];
     _data[index] = newVal;
     return temp;
@@ -73,35 +79,52 @@ public class SuperArray
 
 
   //adds an item after the last item
-  public void add( int newVal ){
-  	for (int i = 0; i < _size; i += 1) {
-  		if (_data[i] == 0) {
-  			_data[i] = newVal;
-  		}
-  		System.out.print(_data[i] + ",");
-  	}
-  }
+  public void add( int newVal ) {
+    int[] mouse = new int[_size + 1];
+    for (int i = 0; i < _size; i++) {
+      mouse[i] = _data[i];
+    }
+    mouse[_size] = newVal;
+    _data = mouse;
+    _size += 1;
+    System.out.println(_size);
+  } // add
 
 
   //inserts an item at index
-  public void add( int index, int newVal )
-  {
-    /* YOUR IMPLEMENTATION HERE */
+  public void add( int index, int newVal ) {
+    int[] mole = new int[_size + 1];
+    for (int i = 0; i < index; i++) {
+      mole[i] = _data[i];
+    }
+    mole[index] = newVal;
+    for (int h = index + 1; h < _size + 1; h++) {
+      mole[h] = _data[h - 1];
+    }
+    _data = mole;
+    _size += 1;
   }
 
 
   //removes the item at index
   //shifts elements left to fill in newly-empted slot
-  public void remove( int index )
-  {
-    /* YOUR IMPLEMENTATION HERE */
-  }
+  public void remove( int index ) {
+    int[] capybara = new int[_size - 1];
+    for (int i = 0; i < index; i++) {
+      capybara[i] = _data[i];
+    }
+    for (int h = index + 1; h <= _size - 1; h++) {
+      capybara[h - 1] = _data[h];
+    }
+    _data = capybara;
+    _size -= 1;
+  } // remove
 
 
   //return number of meaningful items in _data
   public int size()
   {
-	return 0;
+    return _size;
   }
 
 
@@ -109,7 +132,7 @@ public class SuperArray
   //main method for testing
   public static void main( String[] args )
   {
-    /*~~~~~~~~move~me~down~~~~~~~~~~~~~~V~~~~~~~~
+
       SuperArray curtis = new SuperArray();
       System.out.println( "Printing empty SuperArray curtis..." );
       System.out.println( curtis );
@@ -119,7 +142,8 @@ public class SuperArray
       }
 
       System.out.println("Printing populated SuperArray curtis...");
-      System.out.println(curtis);s
+      System.out.println(curtis);
+
       for( int i = 0; i < 3; i++ ) {
       curtis.expand();
       System.out.println("Printing expanded SuperArray curtis...");
@@ -151,12 +175,15 @@ public class SuperArray
       mayfield.add(3,99);
       System.out.println("Printing SuperArray mayfield post-insert...");
       System.out.println(mayfield);
+
       mayfield.add(2,88);
       System.out.println("Printing SuperArray mayfield post-insert...");
       System.out.println(mayfield);
+
       mayfield.add(1,77);
       System.out.println("Printing SuperArray mayfield post-insert...");
       System.out.println(mayfield);
+          /*~~~~~~~~move~me~down~~~~~~~~~~~~~~V~~~~~~~~
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|~~~~~~~~*/
   }//end main()
 
