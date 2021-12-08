@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
 
 * TNPG Puntu (Anjini Katari and Jacc Chen)
@@ -5,6 +6,12 @@
  * HW41 -- Be Rational
  * 2021-12-01
 
+=======
+// TNPG: Puntu (Anjini Katari, Jacc Chen)
+// APCS p7
+// HW42 -- Be more rational
+// 2021-12-02
+>>>>>>> 1752942d2838e06a9388b2c71e6334bfcbb32f55
 
 /**
  * class Rational (v1)
@@ -12,6 +19,14 @@
  * facilitates
  * multiplication
  * division
+<<<<<<< HEAD
+=======
+
+DISCO:
+* using this. makes things more precise so that there are fewer mess ups in the future
+* (double) a / b is the same as (double) a / (double) b 
+
+>>>>>>> 1752942d2838e06a9388b2c71e6334bfcbb32f55
  **/
 
 public class Rational
@@ -71,9 +86,15 @@ public class Rational
   // need not reduce
   public void multiply( Rational r )
   {
+<<<<<<< HEAD
     this._numerator   = this._numerator   * r._numerator;
     this._denominator = this._denominator * r._denominator;
   }
+=======
+    _numerator   = this._numerator   * r._numerator;
+    _denominator = this._denominator * r._denominator;
+  } // multiply
+>>>>>>> 1752942d2838e06a9388b2c71e6334bfcbb32f55
 
 
   // divide
@@ -81,13 +102,19 @@ public class Rational
   public void divide( Rational r )
   {
     if ( r._numerator != 0 ) {
+<<<<<<< HEAD
       this._numerator   = this._numerator   * r._denominator;
       this._denominator = this._denominator * r._numerator;
+=======
+      _numerator   = this._numerator   * r._denominator;
+      _denominator = this._denominator * r._numerator;
+>>>>>>> 1752942d2838e06a9388b2c71e6334bfcbb32f55
     }
     else {
       System.out.println( "Div by 0 error. Values unchanged." );
     }
   } // divide
+<<<<<<< HEAD
   
   public void add(Rational r) {
   	
@@ -96,6 +123,67 @@ public class Rational
   public void subtract(Rational r) {
   } // subtract 
 
+=======
+
+public int gcdiv(int a, int b) {
+  int gcd = 1;
+  int i = 1;
+    while (i <= a && i <= b) {
+        if (a % i == 0 && b % i == 0) {
+            gcd = i;
+        }
+        i++;
+    }
+     return gcd;
+} // helper method gcd
+
+public int lcm(int a, int b) {
+  int lcm = a * (b / gcdiv(a , b));
+  return lcm;
+} // helper lcm
+
+public void add(Rational r) {
+  if (_denominator == r._denominator) {
+    _numerator = this._numerator + r._numerator;
+    _denominator = this._denominator;
+  }
+  else {
+    _numerator = ((lcm(this._denominator, r._denominator) / this._denominator) * this._numerator) + ((lcm(this._denominator, r._denominator) / r._denominator) * r._numerator);
+    _denominator = lcm(this._denominator, r._denominator);
+  }
+} // add
+
+public void subtract(Rational r) {
+  int commond = lcm(this._denominator, r._denominator);
+  if (_denominator == r._denominator) {
+    _numerator = this._numerator - r._numerator;
+    _denominator = this._denominator;
+  }
+  else {
+    _numerator = ((commond / this._denominator) * this._numerator) - ((commond / r._denominator) * r._numerator);
+    _denominator = commond;
+  }
+} // subtract
+
+public void reduce() {
+  int commonfactor = gcdiv(_numerator, _denominator);
+  _numerator = this._numerator / commonfactor;
+  _denominator = this._denominator / commonfactor;
+} // reduce
+
+public int compareTo(Rational r) {
+  int commondenom = lcm(this._denominator, r._denominator);
+  if (_numerator == r._numerator && _denominator == r._denominator) {
+    return 0;
+  }
+  if ((((commondenom / this._denominator) * this._numerator) - ((commondenom / r._denominator) * r._numerator)) > 0 ) {
+    return 1;
+  }
+  else {
+    return -1;
+  }
+} // compareTo
+>>>>>>> 1752942d2838e06a9388b2c71e6334bfcbb32f55
 
   //main method for testing
   public static void main( String[] args )
@@ -129,9 +217,45 @@ public class Rational
       System.out.print( r + " / " + t + " = ");
       r.divide(t);
       System.out.println(r);
+<<<<<<< HEAD
+=======
+
+      System.out.print( u + " + " + u + " = ");
+      u.add(u);
+      System.out.println(u);
+
+      System.out.print( u + " + " + v + " = ");
+      u.add(v);
+      System.out.println(u);
+
+      System.out.print( u + " - " + v + " = ");
+      u.subtract(v);
+      System.out.println(u);
+
+      System.out.print( u + " reduced is... ");
+      u.reduce();
+      System.out.println(u);
+
+      System.out.print( r + " reduced is... ");
+      r.reduce();
+      System.out.println(r);
+
+      System.out.print( u + " compared to " + u + " = ");
+      System.out.println(u.compareTo(u));
+
+      System.out.print( v + " compared to " + w + " = ");
+      System.out.println(v.compareTo(w));
+
+      System.out.print( t + " compared to " + u + " = ");
+      System.out.println(t.compareTo(u));
+
+>>>>>>> 1752942d2838e06a9388b2c71e6334bfcbb32f55
     /*~~~~~v~~~~~~~~~~down~goer~3~~~~~~~~~~~~~v~~~~~
       ~~~~~|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|~~~~~*/
   }
 
 }//end class
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1752942d2838e06a9388b2c71e6334bfcbb32f55
