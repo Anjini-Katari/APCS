@@ -7,4 +7,8 @@ public interface ListInt {
 
     public int size();
 
+    public int remove(int x);
+
+    public boolean add (int index, int newVal);
+
 }
