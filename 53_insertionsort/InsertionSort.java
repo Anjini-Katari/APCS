@@ -2,26 +2,33 @@
 // APCS pd07
 // HW53 -- implementing insertion sort
 // 2022-01-06r
-// time spent:  hrs
+// time spent: 1.8 hrs
 
 /******************************
  * class InsertionSort -- implements InsertionSort algorithm
  *
  * ALGO:
- * 
+ * Created a partition starting at one, and sorted the elements
+   before that partition, after the first partition elements were
+   sorted, we added 1 to the partition and then sorted the next
+   element added into place. This repeats until the entire array
+   is sorted!
  * DISCO
+ * Taking the time to properly indent is helpful for finding braces errors
+ * Think SIMPLE, if code seems to complicated it PROBABLY IS, comment what you
+   have out and try starting from scratch.
  *
  * QCC
  * q0: How many passes to sort n elements?
- * a0: 
+ * a0: n passes
  * q1: What do you know after pass p?
- * a1: 
+ * a1: The p+1 leftmost values will be sorted
  * q2: How will you know when sorted?
- * a2:
+ * a2: When number of passes is equal to the number of elements
  * q3: What constitues a pass?
- * a3:
+ * a3: When the partition moves over to the right 1
  * q4: What must you track?
- * a4: 
+ * a4: Where the partition is in the array
  ******************************/
 
 
@@ -54,35 +61,35 @@ public class InsertionSort
     }
   }
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
   // VOID version of InsertionSort
   // Rearranges elements of input ArrayList
   // postcondition: data's elements sorted in ascending order
-  public static void insertionSortV( ArrayList<Comparable> data ) {
-    int partition = 1;
-    int len = data.size();
+	public static void insertionSortV( ArrayList<Comparable> data ) {
+		int len = data.size();
+		Comparable placeholder = data.get(0);
+		for(int partition = 1; partition < len; partition++ ) {
+		//partition marks first item in unsorted region
 
-    for( int i = 0; i < len; i++ ) {
-      //partition marks first item in unsorted region
+			System.out.println( "\npartition: " + partition + "\tdataset:"); //diag
+			System.out.println( data );
 
-      System.out.println( "\npartition: " + partition + "\tdataset:"); //diag
-      System.out.println( data );
-
-      //traverse sorted region from right to left
-      for( int j = 0; j < partition; j++) {
-        // "walk" the current item to where it belongs
-        // by swapping adjacent items
-        if (  ) {
-
-          System.out.println( "swap indices "+(i-1)+" & "+i+"..." ); //diag
-          
-        }
-        else
-          break;
-      }
-    }
-  }//end insertionSortV
+			//traverse sorted region from right to left
+			for( int i = partition; i > 0 && i < len; i--) {
+				// "walk" the current item to where it belongs
+				// by swapping adjacent items
+				if (data.get(i).compareTo(data.get(i-1)) < 0) {
+					System.out.println( "swap indices "+(i-1)+" & "+i+"..." ); //diag
+					placeholder = data.get(i);
+					System.out.println("Placeholder val: " + placeholder);
+					data.set(i, data.get(i-1));
+					data.set(i-1, placeholder);
+				}
+				else {
+					break;
+				}
+			}
+		}
+	}//end insertionSortV
 
 
   // ArrayList-returning insertionSort
@@ -105,10 +112,8 @@ public class InsertionSort
     return data;
   }//end insertionSort
 
-
   public static void main( String [] args )
   {
-    /*===============for VOID methods=============
       System.out.println("\n*** Testing sort-in-place (void) version... *** ");
       ArrayList glen = new ArrayList<Integer>();
       glen.add(7);
@@ -124,30 +129,27 @@ public class InsertionSort
       System.out.println( "\nArrayList coco before sorting:\n" + coco );
       insertionSortV(coco);
       System.out.println( "\nArrayList coco after sorting:\n" + coco );
-      ============================================*/
 
-    /*==========for AL-returning methods==========
       System.out.println( "*** Testing non-void version... *** " );
-      ArrayList glen = new ArrayList<Integer>();
-      glen.add(7);
-      glen.add(1);
-      glen.add(5);
-      glen.add(12);
-      glen.add(3);
-      System.out.println( "\nArrayList glen before sorting:\n" + glen );
-      ArrayList glenSorted = insertionSort( glen );
-      System.out.println( "\nsorted version of ArrayList glen:\n"
-      + glenSorted );
-      System.out.println( "\nArrayList glen after sorting:\n" + glen );
+      ArrayList gwen = new ArrayList<Integer>();
+      gwen.add(7);
+      gwen.add(1);
+      gwen.add(5);
+      gwen.add(12);
+      gwen.add(3);
+      System.out.println( "\nArrayList gwen before sorting:\n" + gwen );
+      ArrayList gwenSorted = insertionSort( gwen );
+      System.out.println( "\nsorted version of ArrayList gwen:\n"
+      + gwenSorted );
+      System.out.println( "\nArrayList gwen after sorting:\n" + gwen );
 
-      ArrayList coco = populate( 10, 1, 1000 );
-      System.out.println( "\nArrayList coco before sorting:\n" + coco );
-      ArrayList cocoSorted = insertionSort( coco );
-      System.out.println( "\nsorted version of ArrayList coco:\n"
-      + cocoSorted );
-      System.out.println( "\nArrayList coco after sorting:\n" + coco );
-      System.out.println( coco );
-      ============================================*/
+      ArrayList roco = populate( 10, 1, 1000 );
+      System.out.println( "\nArrayList roco before sorting:\n" + roco );
+      ArrayList rocoSorted = insertionSort( roco );
+      System.out.println( "\nsorted version of ArrayList roco:\n"
+      + rocoSorted );
+      System.out.println( "\nArrayList roco after sorting:\n" + roco );
+      System.out.println( roco );
 
   }//end main
 
