@@ -1,4 +1,5 @@
 /**
+<<<<<<< HEAD
 TNPG: Watson vs The Final Project (Anjini Katari, Ruby Friedman, Joshua Gao)
 APCS
 HW56 -- Turing Training Wheels
@@ -12,6 +13,8 @@ time spent: <elapsed time in hours, rounded to nearest tenth>
    response. To fix this, you can be more specific, for example adding 
    spaces around the keyword.
  * 
+=======
+>>>>>>> 503b6b846f875a4d27a32df6aee9609627b4b68b
  * A program to carry on conversations with a human user.
  * This is the initial version that:  
  * <ul><li>
@@ -55,6 +58,7 @@ public class Magpie2
 		{
 			response = "Tell me more about your family.";
 		}
+<<<<<<< HEAD
 		else if (statement.indexOf("dog") >= 0
 				|| statement.indexOf("cat") >= 0)
 		{
@@ -75,6 +79,8 @@ public class Magpie2
 		else if (statement.indexOf("geese") >= 0)		{
 			response = "Look at all those chickens!";
 		}
+=======
+>>>>>>> 503b6b846f875a4d27a32df6aee9609627b4b68b
 		else
 		{
 			response = getRandomResponse();
@@ -109,6 +115,7 @@ public class Magpie2
 		{
 			response = "You don't say.";
 		}
+<<<<<<< HEAD
 		else if (whichResponse == 4)
 		{
 			response = "That's cray.";
@@ -117,6 +124,8 @@ public class Magpie2
 		{
 			response = "Bananas.";
 		}
+=======
+>>>>>>> 503b6b846f875a4d27a32df6aee9609627b4b68b
 
 		return response;
 	}
