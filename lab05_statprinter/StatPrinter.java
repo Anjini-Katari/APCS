@@ -1,7 +1,7 @@
-// Clyde "Thluffy" Sinclair
+// Radical Craticals
 // APCS pd08
 // L05 -- pulling it together
-// 2022-02-03r
+// 2022-02-03
 // time spent: 3 hrs
 
 
@@ -72,7 +72,7 @@ public class StatPrinter
   //  _frequency would be [0,0,3,2,0,1]
   public StatPrinter( ArrayList <Integer> data )
   {
-    //new array and populates it 
+    //new array and populates it
      _frequency = new ArrayList <Integer> (max(data) + 1);
      for (int _freqsize = 0; _freqsize < max(data) + 1; _freqsize++){
        _frequency.add(0);
@@ -120,24 +120,13 @@ public class StatPrinter
   // //    isLocalMode(0) -> false
   // //    isLocalMode(1) -> true
   // //    isLocalMode(5) -> true
- 
+
   public boolean isLocalMode( int i )
   {
-    if (i > 0) {
-      System.out.println("\n index is bigger than 0");
-      if (i < (_frequency.size() - 1)){
-        System.out.println("index is smaller than size");
-        if(_frequency.get(i) > _frequency.get(i - 1)){
-          System.out.println(" bigger than before");
-          if (_frequency.get(i) > _frequency.get(i + 1) ) {
-            System.out.println("bigger than after");
-            return true;
-          }
-        }
-      }
-    }
-    return false; 
-    
+  if (i > 0 && i < _frequency.size() - 1) {
+    return (_frequency.get( i - 1 ) < _frequency.get( i )) && (_frequency.get( i  ) > _frequency.get( i + 1 ));
+  }
+    return false;
   }//end method
 
 
@@ -154,10 +143,10 @@ public class StatPrinter
     }
 
     return _localModes;
-  
-  } 
-  
-  
+
+  }
+
+
   //*************** QUESTION 05 **************************
   //precond:  longestBar > 0
 
