@@ -162,12 +162,4 @@ public class Review {
       return randomNegativeAdj();
     }
   }
-
-  public static void main(String [] args) {
-    System.out.println(sentimentVal("backward"));
-    System.out.println(sentimentVal("terrible"));
-    System.out.println(sentimentVal("wonderful"));
-
-  }
-
 }
