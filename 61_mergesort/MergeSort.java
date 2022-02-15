@@ -21,11 +21,44 @@ public class MergeSort
    ******************************************************/
   private static int[] merge( int[] a, int[] b )
   {
-  	int alen = a.length();
-  	int blen = b.length();
-  	int[] merged = int[alen + blen];
-  	
-  	
+  	int alen = a.length;
+  	int blen = b.length;
+    int aInd = 0;
+    int bInd = 0;
+    int mergeInd = 0;
+
+  	int[] merged = new int[alen + blen];
+
+  	while (mergeInd < merged.length && aInd < alen && bInd < blen) {
+        if(a[aInd] < b[bInd]){
+          merged[mergeInd] = a[aInd];
+          aInd ++;
+          mergeInd ++;
+        }
+       else {
+          merged[mergeInd] = b[bInd];
+          bInd ++;
+          mergeInd ++;
+        }
+  }
+
+    if (aInd == alen){
+      for (int i = bInd; i < blen; i ++){
+        merged[mergeInd] = b[i];
+        mergeInd ++;
+        bInd ++;
+      }
+    }
+
+    else if (bInd == blen){
+      for (int i = aInd; i < alen; i ++){
+        merged[mergeInd] = a[i];
+        mergeInd ++;
+        aInd ++;
+        bInd ++;
+      }
+    }
+    return merged;
   	
   }//end merge()
 
@@ -35,11 +68,34 @@ public class MergeSort
    * Sorts input array using mergesort algorithm
    * Returns sorted version of input array (ascending)
    ******************************************************/
- /* public static int[] sort( int[] arr)
+  public static int[] sort( int[] arr)
   {
+    int arrLen1 = (int) (arr.length / 2);
+    int arrLen2 = arr.length - arrLen1;
 
-  }//end sort()
-*/
+    int[] arr1 = new int[arrLen1];
+    int[] arr2 = new int[arrLen2];
+    int iNdEx1 = 0;
+    int iNdEx2 = 0;
+
+    if (arr.length == 1){
+      return arr;
+    }
+
+    else {
+      for (int ind1 = 0; ind1 < arrLen1 ; ind1 ++){
+        arr1[iNdEx1] = arr[ind1];
+        iNdEx1 ++; 
+  
+        }
+        for (int ind2 = arrLen1; ind2 < arr.length ; ind2 ++){
+          arr2[iNdEx2] = arr[ind2];
+          iNdEx2 ++; 
+        }
+        return merge(sort(arr1), sort(arr2));
+      }
+  }
+
 
 
   //-------------------HELPERS-------------------------
@@ -74,24 +130,31 @@ public class MergeSort
       int[] arr6 = {9,42,17,63,0,512,23};
       int[] arr7 = {9,42,17,63,0,9,512,23,9};
 
+      int[] arr8 = {0, 9, 17, 23, 42, 63, 512};
+
+
       System.out.println("\nTesting mess-with-array method...");
       printArray( arr3 );
       mess(arr3);
       printArray( arr3 );
 
-    /*~~~~~~~~~~~~~~ Ye Olde Tester Bar ~~~~~~~~~~~~~~
       System.out.println("\nMerging arr1 and arr0: ");
       printArray( merge(arr1,arr0) );
 
       System.out.println("\nMerging arr4 and arr6: ");
       printArray( merge(arr4,arr6) );
 
+      System.out.println("\nMerging arr4 and arr8: ");
+      printArray( merge(arr4,arr8) );
+
       System.out.println("\nSorting arr4-7...");
       printArray( sort( arr4 ) );
-      printArray( sort( arr5 ) );
+
+      printArray( sort( arr5 ) ); 
+
       printArray( sort( arr6 ) );
       printArray( sort( arr7 ) );
-      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
   }//end main()
 
 }//end class MergeSort
