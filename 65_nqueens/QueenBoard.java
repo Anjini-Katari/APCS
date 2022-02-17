@@ -1,3 +1,11 @@
+/*
+Radical Caticals: Anjini Katari, Ziying Jian, Daniel Jung
+APCS
+HW65 -- NQueens
+2022-02-17
+time spent: 1.5h
+*/
+
 /***
  * class QueenBoard
  * Generates solutions for N-Queens problem.
@@ -27,15 +35,30 @@ public class QueenBoard
    */
   public boolean solve()
   {
-    return false;
+    return solveH(0);
   }
 
 
   /**
    *Helper method for solve. 
+   given the column, check if you can have a queen given the row
+   purpose -> fill the board with queens     
    */
   private boolean solveH( int col ) 
   {
+    if (col >= _board.length){
+      return true;
+    }
+    for (int row = 0; row < _board.length; row ++){ //increment rows 
+      if (addQueen(row, col) == true){ //
+        if (solveH(col + 1) == true){
+          return true;
+        }
+      }
+      else{
+        removeQueen(row, col);
+      }
+    }  
     return false;
   }
 
@@ -43,8 +66,8 @@ public class QueenBoard
   public void printSolution()
   {
       String s = "";
-      for (int i = 0; i < _board[size]; i ++){ //rows
-        for (int j = 0; j < _board[size][size]; j ++){
+      for (int i = 0; i < _board.length; i ++){ //rows
+        for (int j = 0; j < _board[0].length; j ++){
             if (_board[i][j] <= 0){
                 s += "_" + "\t";
             }
@@ -67,18 +90,18 @@ public class QueenBoard
   //================= YE OLDE SEPARATOR =================
 
   /***
-   * <General description>
-   * precondition: 
-   * postcondition: 
+   * add a queen and block out any spot where a queen is impossible 
+   * precondition: array cannot have a size of 0
+   * postcondition: selected square is populated 
    */
   private boolean addQueen(int row, int col)
   {
-    if(_board[row][col] != 0){
+    if(_board[row][col] != 0){ //if theres a 1(queen there)/-1(cant have a queen) you cant add a queen
       return false;
     }
-    _board[row][col] = 1;
-    int offset = 1;
-    while(col+offset < _board[row].length){
+    _board[row][col] = 1; //otherwise, add a queen
+    int offset = 1; 
+    while(col+offset < _board[row].length){ //while the next column isnt the last one 
       _board[row][col+offset]--;
       if(row - offset >= 0){
         _board[row-offset][col+offset]--;
@@ -93,9 +116,9 @@ public class QueenBoard
 
 
   /***
-   * <General description>
-   * precondition: 
-   * postcondition: 
+   * removes queen and undos any blocked sections 
+   * precondition: array cannot have a size of 0
+   * postcondition: selected square is not a queen
    */
   private boolean removeQueen(int row, int col){
     if ( _board[row][col] != 1 ) {
@@ -119,9 +142,9 @@ public class QueenBoard
 
 
   /***
-   * <General description>
-   * precondition: 
-   * postcondition: 
+   * prints the array
+   * precondition: n/a
+   * postcondition: a string with the array is printed
    */
   public String  toString()
   {
@@ -140,17 +163,44 @@ public class QueenBoard
   public static void main( String[] args )
   {
     QueenBoard b = new QueenBoard(5);
+    
+    b.solve();
+    System.out.println("solved");
+    System.out.println("printSol");
 
-    printSolution();
+    b.printSolution();
+    System.out.println("toString");
+    b.toString();
 
+    QueenBoard two = new QueenBoard(2);
+    two.solve();
+    System.out.println("solved");
+    System.out.println("printSol");
+
+    two.printSolution();
+    System.out.println("toString");
+    two.toString();
+
+    QueenBoard nada = new QueenBoard(0);
+    nada.solve();
+    System.out.println("solved");
+    System.out.println("printSol");
+
+    nada.printSolution();
+    System.out.println("toString");
+    nada.toString();
+
+
+
+    /*
     System.out.println(b);
-    /** should be...
+     should be...
        0	0	0	0	0	
        0	0	0	0	0	
        0	0	0	0	0	
        0	0	0	0	0	
        0	0	0	0	0	
-    */
+    
 
     b.addQueen(3,0);
     b.addQueen(0,1);
@@ -161,7 +211,7 @@ public class QueenBoard
        0	-1	0	-1	0	
        1	-1	-1	-1	-2	
        0	-1	0	0	0	
-    */
+    
 
     b.removeQueen(3,0);
     System.out.println(b);
