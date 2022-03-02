@@ -1,4 +1,4 @@
-Anjini Katari (worked with Ruby Friedman and Daniel Jung)
+Anjini Katari (worked with Ruby Friedman, Ziying Jian and Daniel Jung)
 APCS
 HW67 -- A Knight Goes on Tour
 2022-03-01
