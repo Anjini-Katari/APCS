@@ -215,11 +215,11 @@ class TourFinder
        *     g . . . b
        *     . h . a .
       ******************************************/
-      findTour(x+1, y+2, moves +1);
+      findTour(x+1, y+2, moves+1);
       findTour(x+2, y-1, moves+1);
       findTour(x-1, y-2, moves+1);
       findTour(x-2, y+1, moves+1);
-      findTour(x+1, y-2, moves +1);
+      findTour(x+1, y-2, moves+1);
       findTour(x+2, y+1, moves+1);
       findTour(x-1, y+2, moves+1);
       findTour(x-2, y-1, moves+1);
