@@ -1,8 +1,9 @@
-// Clyde Sinclair
-// APCS pd0
-// HW75 -- implement a node for a linked list
-// 2022-03-14m
-// time spent:  hrs
+// Under Pressure: Julia Kozak, Yat Long Chan, Anjini Katari
+// APCS pd08
+// HW77 -- Insert|Remove
+// 2022-03-16w
+// time spent: 0.6hrs
+// KTS used: 2
 
 /***
  * class LLNode
@@ -13,7 +14,7 @@
 public class LLNode
 {
   //instance vars
-  private String _cargo;
+  private String _cargo; 
   private LLNode _nextNode;
 
   // constructor

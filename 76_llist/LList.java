@@ -91,14 +91,15 @@ public class LList implements List //interface def must be in this dir
   // override inherited toString
   public String toString()
   {
-    String ret = "[";
+    String ret = "(";
     LLNode temp = _head;
     while (temp != null) {
+
       ret += temp.toString() + ", ";
       temp = temp.getNext();
     }
     if (_size > 0) ret = ret.substring(0, (ret.length() - 2));
-    ret += "]";
+    ret += ")";
     return ret;
   }
 

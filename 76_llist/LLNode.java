@@ -13,8 +13,8 @@
 public class LLNode
 {
   //instance vars
-  private String _cargo;
-  private LLNode _nextNode;
+  private String _cargo; //new addition to node
+  private LLNode _nextNode; 
 
   // constructor
   public LLNode( String value, LLNode next )
