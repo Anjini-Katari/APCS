@@ -24,7 +24,7 @@
  *   Set ret to the current tmp cargo and names the node that is 2 
  *   nodes away from the current location and set that to be the next node  
  *   from the current location.
- * return ret
+ * Decrease size by 1 and return ret
  * 
  * algo for add:
  * if index is less than 0 or greater than the current size, return 
