@@ -1,11 +1,16 @@
+/*Team YAK: Yuki Feng, Anjini Katari, Kevin Li
+APCS
+LAB08: America's Next Top Data Scientist
+2022-04-05
+time spent: 2.5 hrs
+*/
+
 public class music {
     //question: what is the average tempo 
 
     public double tempo(){
-        DataSource ds = DataSource.connect("http://weather.gov/xml/current_obs/index.xml").load();
-        WeatherStation[] allstns = ds.fetchArray("WeatherStation", "station/station_name", 
-                                                "station/station_id", "station/state",
-                                         "station/latitude", "station/longitude");
-        System.out.println("Total stations: " + allstns.length);
+        DataSource ds = DataSource.connect("https://www.kaggle.com/datasets/geomack/spotifyclassification/download").load();
+        tempos[] alltemps = ds.fetchArray("tempo");
+        System.out.println("total tempos: " + alltemps.length);
     }
 }
