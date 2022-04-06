@@ -1,16 +1,26 @@
-/*Team YAK: Yuki Feng, Anjini Katari, Kevin Li
-APCS
-LAB08: America's Next Top Data Scientist
-2022-04-05
-time spent: 2.5 hrs
-*/
+import java.util.ArrayList;
+
+import core.data.*;
 
 public class music {
-    //question: what is the average tempo 
+    public static void main(String[] args) {
+        DataSource ds = DataSource.connect("https://data.nasa.gov/api/views/gh4g-9sfh/rows.xml?accessType=DOWNLOAD");
+        ds.setCacheTimeout(15 * 60);
+        ds.load();
+        ds.printUsageString();
 
-    public double tempo(){
-        DataSource ds = DataSource.connect("https://www.kaggle.com/datasets/geomack/spotifyclassification/download").load();
-        tempos[] alltemps = ds.fetchArray("tempo");
-        System.out.println("total tempos: " + alltemps.length);
+        String[] fields = ds.fieldNames();
+        for (String field : fields) {
+            System.out.println(field);
+        }
+
+        System.out.println(ds.getCacheDirectory());
+
+        //String[] row = ds.fetchStringArray("row");
+
+        /*
+        ArrayList<Integer> mass = ds.fetchIntList("mass");
+        System.out.println("The mass of the meteorite is " + mass);
+        */
     }
 }
