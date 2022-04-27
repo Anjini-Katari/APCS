@@ -64,7 +64,7 @@ public class CelebrityFrame extends JFrame
 	 */
 	public void replaceScreen(String screen)
 	{
-		
+		StartPanel start = new StartPanel(controller);
 	}
 	
 }
