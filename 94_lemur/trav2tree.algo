@@ -1,0 +1,81 @@
+Chocolate Freds:: Anjini, Yuki, Hamim
+APCS pd08
+HW94 -- reverse engineering
+2022-05-09m
+time spent:  hrs
+
+
+DISCO
+------------------------------------------------
+* Given a In-order and post/pre order traversal, there can only be 1 tree but 
+  if there is a prost and pre order traversal, multiple trees are possible.
+================================================
+
+
+QCC
+------------------------------------------------
+* How does an algo for a degenerate tree work? 
+
+================================================
+
+
+HOW KEEN ARE YOUR POWERS OF OBSERVATION?
+------------------------------------------------
+Q: For a given binary tree, how many unique pre-order traversals are there?
+A: 1 pre-order traversal
+
+Q: For a given binary tree, how many unique in-order traversals are there?
+A: 1 in-order traversal
+
+Q: For a given binary tree, how many unique post-order traversals are there?
+A: 1 post-order traversal
+
+Q: For a given traversal, how many unique trees could have produced it?
+A: If there's 1 given traversal, there is more than 1 possible tree that 
+   can be produced
+
+Q: Given a pre-order traversal, what can you infer about its tree?
+A: You can infer the root and the bottom right-most node.
+
+Q: Given a post-order traversal, what can you infer about its tree?
+A: You can infer the root and the bottom left-most node.
+
+Q: What does "1-to-1" mean?
+A: We believe it means that each node has 1 child node and therefore each 
+   child node will only have 1 parent node. 
+
+Q: What does "onto" mean?
+A: 
+
+================================================
+
+
+ALGO for pre-order and post-order
+------------------------------------------------
+givens: the tree will be balanced
+
+procedure:
+1) establish the root by looking at the first element in pre and the last in post. 
+   remove the root from pre and post 
+2) set the first element in pre to be the beginning of the left subtree. set the 
+   the last element in post to be the beginning of the right subtree.
+3) in the pre list, find the last element of post and remove everything from that 
+   index to the last element (inclusive). in the post list, find the first element 
+   of pre and remove everything from that index to the first element (inclusive). 
+4) repeat steps 2 and 3 till the list is empty 
+
+================================================
+ALGO for pre-order and post-order
+------------------------------------------------
+givens: the tree will be balanced
+
+procedure:
+1) establish the root by looking at the first element in pre and the last in post. 
+   remove the root from pre and post 
+2) set the first element in pre to be the beginning of the left subtree. set the 
+   the last element in post to be the beginning of the right subtree.
+3) in the pre list, find the last element of post and remove everything from that 
+   index to the last element (inclusive). in the post list, find the first element 
+   of pre and remove everything from that index to the first element (inclusive). 
+4) repeat steps 2 and 3 till the list is empty 
+
