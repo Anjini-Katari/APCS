@@ -69,7 +69,7 @@ public class TreeNode
    */
   void setLeft( TreeNode theNewLeft )
   {
-    /*** YOUR IMPLEMENTATION HERE ***/
+    _lt = theNewLeft;
   }
 
 
@@ -78,7 +78,7 @@ public class TreeNode
    */
   void setRight( TreeNode theNewRight )
   {
-    /*** YOUR IMPLEMENTATION HERE ***/
+    _rt = theNewRight;
   }
 
 
@@ -87,7 +87,7 @@ public class TreeNode
    */
   void setValue( int theNewValue ) 
   {
-    /*** YOUR IMPLEMENTATION HERE ***/
+    _cargo = theNewValue;
   }
 
 }//end class
