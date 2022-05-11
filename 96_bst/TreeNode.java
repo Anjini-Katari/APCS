@@ -21,7 +21,6 @@ public class TreeNode
   TreeNode( int initValue )
   {
     _cargo = initValue;
-    _lt = _rt = null;
   }
 
 
@@ -31,7 +30,7 @@ public class TreeNode
    */
   TreeNode( int initValue, TreeNode initLeft, TreeNode initRight )
   {
-    _cargo = initValue;
+    this(initValue);
     _lt = initLeft;
     _rt = initRight;
   }
