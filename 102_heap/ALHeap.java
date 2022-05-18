@@ -57,7 +57,7 @@ public class ALHeap
   public Integer peekMin()
   {
     return _heap.get(0);
-  }//O(1) 
+  }//O(1)
 
 
   /**
@@ -71,28 +71,16 @@ public class ALHeap
   {
     _heap.add(addVal); //adds val to AL
 
-    int p = (_heap.indexOf(addVal) - 1) / 2;
-    int rc = 2 * p + 2;
-    int lc = 2 * p + 1;
+    int p = (_heap.indexOf(addVal) - 1) / 2; //parent node
 
-    while (minOf(addVal, rc) == addVal){
-      swap(_heap.indexOf(addVal), _heap.indexOf(rc));
+    while(addVal <_heap.get(p)){
+      //System.out.println("pre swap" + _heap);
+      swap(_heap.indexOf(addVal), p);
+      //System.out.println("post swap" + _heap);
+      p = (_heap.indexOf(addVal) - 1) / 2;
     }
-    else if (minOf(addVal, lc) == addVal){
-      swap(_heap.indexOf(addVal), _heap.indexOf(lc));
-    }
-
+    
   }//O(n)
-
-  public void help( Integer addVal, int rc, int lc){
-    if (minOf(addVal, rc) == addVal){
-      swap(_heap.indexOf(addVal), _heap.indexOf(rc));
-    }
-    else if (minOf(addVal, lc) == addVal){
-      swap(_heap.indexOf(addVal), _heap.indexOf(lc));
-    }
-
-  }
 
 
   /**
@@ -100,22 +88,48 @@ public class ALHeap
    * Removes and returns least element in heap.
    * Postcondition: Tree maintains heap property.
    * ALGO:
-   * <your clear && concise procedure here>
+   * 1) remove 'root', replace with last val
+   * 2) compare pos 1 and 2
+   * 3) swap the lesser val with last val
    */
-  // public Integer removeMin()
-  // {
+  public Integer removeMin()
+  {
+    if (isEmpty()){
+      return null;
+    }
+    else if (_heap.size() == 1){
+      return _heap.remove(0);
+    }
 
-  // }//O(?)
+    _heap.remove(0);
+    _heap.set(0, _heap.get(_heap.size() - 1));
 
-  // /*
-  //  * minChildPos(int)  ---  helper fxn for removeMin()
-  //  * Returns index of least child, or
-  //  * -1 if no children, or if input pos is not in ArrayList
-  //  * Postcondition: Tree unchanged
-  //  */
-  // private int minChildPos( int pos )
-  // {
-  // }//O(?)
+    while(){
+      swap(minChildPos(0), );
+    }
+  }//O(?)
+
+
+  /**
+   * minChildPos(int)  ---  helper fxn for removeMin()
+   * Returns index of least child, or
+   * -1 if no children, or if input pos is not in ArrayList
+   * Postcondition: Tree unchanged
+   */
+  private int minChildPos( int pos )
+  {
+    int rc = 2 * pos + 2;
+    int lc = 2 * pos + 1;
+    if (pos >= _heap.size()){
+      return -1;
+    }
+    if(lc > rc){
+      return rc;
+    }
+    else{
+      return lc;
+    }
+  }//O(n)
 
 
   //~~~~~~~~~~~~~ aux helper fxns ~~~~~~~~~~~~~~
