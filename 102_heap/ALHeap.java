@@ -4,7 +4,7 @@
  * Implements a min heap using an ArrayList as underlying container
  */
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 public class ALHeap
 {
@@ -17,7 +17,6 @@ public class ALHeap
    */
   public ALHeap()
   {
-    _heap = new ArrayList<Integer>();
   }
 
 
@@ -30,13 +29,7 @@ public class ALHeap
    */
   public String toString()
   {
-    String foo = "[";
-    for (int i = 0; i < _heap.size(); i++) {
-      foo += _heap.get(i);
-    }
-    foo += "]";
-    return foo;
-  }//O(n)
+  }//O(?)
 
 
   /**
@@ -45,8 +38,7 @@ public class ALHeap
    */
   public boolean isEmpty()
   {
-    return (_heap.size() == 0);
-  }//O(1)
+  }//O(?)
 
 
   /**
@@ -56,8 +48,7 @@ public class ALHeap
    */
   public Integer peekMin()
   {
-    return _heap.get(0);
-  }//O(1)
+  }//O(?)
 
 
   /**
@@ -69,18 +60,7 @@ public class ALHeap
    */
   public void add( Integer addVal )
   {
-    _heap.add(addVal); //adds val to AL
-
-    int p = (_heap.indexOf(addVal) - 1) / 2; //parent node
-
-    while(addVal <_heap.get(p)){
-      //System.out.println("pre swap" + _heap);
-      swap(_heap.indexOf(addVal), p);
-      //System.out.println("post swap" + _heap);
-      p = (_heap.indexOf(addVal) - 1) / 2;
-    }
-    
-  }//O(n)
+  }//O(?)
 
 
   /**
@@ -88,25 +68,10 @@ public class ALHeap
    * Removes and returns least element in heap.
    * Postcondition: Tree maintains heap property.
    * ALGO:
-   * 1) remove 'root', replace with last val
-   * 2) compare pos 1 and 2
-   * 3) swap the lesser val with last val
+   * <your clear && concise procedure here>
    */
   public Integer removeMin()
   {
-    if (isEmpty()){
-      return null;
-    }
-    else if (_heap.size() == 1){
-      return _heap.remove(0);
-    }
-
-    _heap.remove(0);
-    _heap.set(0, _heap.get(_heap.size() - 1));
-
-    while(){
-      swap(minChildPos(0), );
-    }
   }//O(?)
 
 
@@ -118,18 +83,7 @@ public class ALHeap
    */
   private int minChildPos( int pos )
   {
-    int rc = 2 * pos + 2;
-    int lc = 2 * pos + 1;
-    if (pos >= _heap.size()){
-      return -1;
-    }
-    if(lc > rc){
-      return rc;
-    }
-    else{
-      return lc;
-    }
-  }//O(n)
+  }//O(?)
 
 
   //~~~~~~~~~~~~~ aux helper fxns ~~~~~~~~~~~~~~
@@ -144,7 +98,7 @@ public class ALHeap
   //swap for an ArrayList
   private void swap( int pos1, int pos2 )
   {
-    _heap.set( pos1, _heap.set( pos2, _heap.get(pos1) ) );
+    _heap.set( pos1, _heap.set( pos2, _heap.get(pos1) ) );	
   }
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -153,6 +107,7 @@ public class ALHeap
   //main method for testing
   public static void main( String[] args )
   {
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       ALHeap pile = new ALHeap();
 
       pile.add(2);
@@ -176,7 +131,6 @@ public class ALHeap
       pile.add(9);
       System.out.println(pile);
 
-      /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       System.out.println("removing " + pile.removeMin() + "...");
       System.out.println(pile);
       System.out.println("removing " + pile.removeMin() + "...");
