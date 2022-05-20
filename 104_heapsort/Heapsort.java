@@ -28,34 +28,38 @@ public class Heapsort
 
     //STEP 2: repeatedly pull from heap until empty
     //(Sorted region will grow from R to L)
-    for( int lastLeaf = ; ;  ) {
+    for( int lastLeaf = data.length; lastLeaf > 0; lastLeaf -- ) {
       //set aside root val
       int tmp = data[0];
 
       //swap last leaf (rightmost on bottom level) into root pos
+      swap(lastLeaf, 0, data);
 
       //walk now-out-of-place root node down the tree...
-      int pos =
+      int pos = 0;
       int minChildPos;
       int maxChildPos;
 
-      while(  ) {
+      while( data[pos + 1] >= 0) {
 
         //choose child w/ max value, or check for child
+        minChildPos = minChildPos(pos, lastLeaf, data);
+        maxChildPos = maxChildPos(pos, lastLeaf, data);
 
         //if no children, then i've walked far enough
         if ( maxChildPos == -1 )
           break;
         //if i am greater than my greatest child, i've walked far enough
-        else if (  )
+        else if ( pos > maxChildPos )
           break;
         //if i am > least child, swap with that child
         else {
-
+          swap(minChildPos, pos, data);
         }
       }
 
       //overwrite last leaf with old root val
+      data[lastLeaf] = pos;
 
     }
 
@@ -67,9 +71,7 @@ public class Heapsort
 
 
 
-  private void minHeapify( int[] a )
-  {
-
+  private void minHeapify( int[] a ){
     for( int i=1; i<a.length; i++ ) {
       //add a[i] as leaf
       int addValPos =  i + 1; //val to add is next non-heap element
@@ -78,24 +80,41 @@ public class Heapsort
       while( a[i] < a[0] ) { //potentially swap until reach root
 
         //pinpoint parent
-        int parentPos = (addValPos + 1) /2
+        int parentPos = (addValPos + 1) /2;
 
-        if (  ) {
-          swap(  );
+        if ( a[parentPos] > a[i]) {
+          swap( addValPos, parentPos, a );
           addValPos = parentPos;
         }
         else
           break;
       }
     }
-  }//end minHeapify() -- O(?)
+  }//end minHeapify() -- O(n log n )
 
 
 
-  private void maxHeapify( int[] a )
-  {
+  private void maxHeapify( int[] a ){
+    for( int i=1; i<a.length; i++ ) {
+      //add a[i] as leaf
+      int addValPos =  i + 1; //val to add is next non-heap element
 
-  }//end maxHeapify() -- O(?)
+      //now must percolate up
+      while( a[i] > a[0] ) { //potentially swap until reach root
+
+        //pinpoint parent
+        int parentPos = (addValPos + 1) /2;
+
+        if ( a[parentPos] > a[i]) {
+          swap( addValPos, parentPos, a );
+          addValPos = parentPos;
+        }
+        else{
+          break;
+        }
+      }
+    }
+  }//end maxHeapify() -- O(nlogn)
 
 
 
@@ -107,15 +126,17 @@ public class Heapsort
     int rc = 2*pos + 2; //index of right child
 
     //pos is not in the heap or pos is a leaf position
-    if (  )
+    if ( pos >= a.length )
       retVal = -1;
     //if no right child, then left child is only option for min
-    else if (  )
+    else if ( rc > a.length )
       retVal = lc;
     //have 2 children, so compare to find least
-    else if (  )
+    else if ( minOf(lc, rc) == lc )
       retVal = lc;
-    else
+    else{
+      retVal = rc;
+    }
 
     return retVal;
   }
@@ -125,6 +146,23 @@ public class Heapsort
   //return position of child with greatest value in input array
   private int maxChildPos( int pos, int last, int[] a )
   {
+    int retVal;
+    int lc = 2*pos + 1; //index of left child
+    int rc = 2*pos + 2; //index of right child
+
+    //pos is not in the heap or pos is a leaf position
+    if ( pos >= a.length )
+      retVal = -1;
+    //if no right child, then left child is only option for min
+    else if ( rc > a.length )
+      retVal = lc;
+    //have 2 children, so compare to find least
+    else if ( minOf(rc, lc) == rc )
+      retVal = lc;
+    else
+      retVal = rc;
+
+    return retVal;
   }
 
 
@@ -172,7 +210,6 @@ public class Heapsort
   //main method for testing
   public static void main( String[] args )
   {
-    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     int[] a = buildArray( 10, 10 );
 
     printArr(a);
@@ -182,6 +219,8 @@ public class Heapsort
     h.sort(a);
 
     printArr(a);
+        /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
   }//end main()

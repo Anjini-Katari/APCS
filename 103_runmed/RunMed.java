@@ -14,7 +14,6 @@ Algo:
 */
 
 
-import java.util.Scanner;
 import java.util.ArrayList;
 
 public class RunMed {
@@ -28,7 +27,7 @@ public class RunMed {
   }
 
   public double getMedian(){
-    if ((lilVals.size() + bigVals.size()) % 2 == 1){ //odd #
+    if ((lilVals._heap.size() + bigVals.size()) % 2 == 1){ //odd #
         int tot = (lilVals.size() + bigVals.size()) / 2;
         if (lilVals.size() < tot){
             tot = tot - lilVals.size();

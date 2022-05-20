@@ -8,6 +8,14 @@ public class ALHeapMin {
         _heap = new ArrayList<Integer>();
     }
 
+    public int size(){
+        return _heap.size();
+    }
+
+    public int get(int x){
+        return _heap.get(x);
+    }
+
     public String toString()
     {
       //prettier version:
